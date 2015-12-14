@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+<meta charset="utf-8">
+<title>Pascal Code Edit</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+</head>
+
+<body>
+
+<div class="leftbar">
+<div class="text_bar">
+
+<b>Конструктор программ v.1.0<br><span style="font-size:11px;">Turbo Pascal 7.0</span>
+</b>
+
+<hr />
+
+ <a href="#" alt='program {заголовок программы}
+{$ ... } {глобальные директивы компилятора}
+use {подключаемые библиотеки}
+label {объявление глобальных меток}
+const {объявление глобальных констант}
+type {объявление глобальных типов}
+var {объявление глобальных переменных}
+begin {основной блок программы}
+ {текст основной программы}
+end'>Структура программы</a><br>
+
+<a href="#" alt='var перем1, перемен2: Real;
+ перем3, переме4:Integer;
+ перемен5, перемен6: Boolean;
+ перемен7, перемен8: Char;'>шаблон var</a> |
+
+<a href="#" alt='var a, b: Real;
+ p,q:Integer;
+ r, s: Boolean;
+ ch1, ch2: Char;'>пример var</a>
+
+
+<br />
+
+<a href="#" alt='type
+ имя типа = array[ список индексов ] of тип;'>одномерный массив</a> |
+
+<a href="#" alt='type
+ mas = array[1..n] of integer;'>пример</a><br>
+
+
+<a href="#" alt='type
+ имя типа = array[ список1, список2 ] of тип;'>двумерный массив</a> |
+
+<a href="#" alt='type
+ mas = array[1..5, 1..10] of integer;'>пример</a>
+
+<br />
+
+
+<a href="#" alt='read(a,b,c)'>read - ввод</a> | <a href="#" alt='readln(a,b,c)'>readln - ввод</a><br>
+<a href="#" alt='write(a,b,c)'>write - вывод</a> | <a href="#" alt='writeln(a,b,c)'>writeln - вывод</a><br>
+
+
+<a href="#" alt='if условие then оператор1 else оператор2;'>if-then-else</a> | <a href="#" alt='if условие then оператор;'>if-then</a> | 
+
+<a href="#" alt='if x > y then begin
+ t := x;
+ min := t;
+ else
+ t := y;
+ end;'>пример</a>
+
+<br />
+<a href="#" alt='case выражение of
+ вариант : оператор;
+ ...
+ вариант : оператор;
+end;'>case-end</a> | 
+
+<a href="#" alt='case выражение of
+ вариант : оператор;
+ ...
+ вариант : оператор;
+ else оператор
+end;'>case-else-end</a> | 
+
+
+<a href="#" alt='case ch of
+ 'A'..'Z', 'a'..'z' : WriteLn('Буква');
+ '0'..'9' : WriteLn('Цифра');
+ '+', '-', '*', '/' : WriteLn('Оператор');
+ else WriteLn('Специальный символ')
+end;'>пример</a>
+
+
+<br />
+
+
+<a href="#" alt='for переменная := начало to конец do оператор'>for-to-do</a> | 
+ 
+<a href="#" alt='for переменная := конец downto начало do оператор'>for-downto-do</a> | 
+
+<a href="#" alt='for x:=1 to 10 do begin
+ y:=2*x+3;
+ WriteLn(y);
+ end;'>пример</a>
+
+<br />
+
+
+
+<a href="#" alt='while условие do оператор'>цикл: while-do</a> | 
+
+<a href="#" alt='while x > eps do 
+begin 
+x:=x/2;
+y:=y+2 
+end;'>пример</a>
+
+<br />
+
+<a href="#" alt='repeat
+ оператор;
+ оператор;
+ ...
+ оператор
+until условие'>цикл: repeat</a> | 
+
+<a href="#" alt='repeat
+ WriteLn("Введите число");
+ ReadLn(x);
+until x>0;'>пример</a><br>
+
+
+<a href="#" alt='procedure имя (формальные параметры);
+ раздел описаний процедуры
+begin
+ исполняемая часть процедуры
+end;'>процедура</a> | 
+
+<a href="#" alt="var x,y,m,n: integer;
+
+procedure MaxNumber(a,b: integer; var max: integer);
+begin
+ if a>b then max:=a else max:=b;
+end;
+
+begin
+ write('Введите x,y ');
+ readln(x,y);
+ MaxNumber(x,y,m);
+ MaxNumber(2,x+y,n);
+ writeln('m=',m,'n=',n);
+end.">пример</a>
+
+<br />
+
+<a href="#" alt='function имя (формальные параметры):тип результата;
+ раздел описаний функции
+begin
+ исполняемая часть функции
+end;'>функция</a> | 
+
+<a href="#" alt="var x,y,m,n: integer;
+function MaxNumber(a,b: integer): integer;
+ var max: integer;
+begin
+ if a>b then max:=a else max:=b;
+ MaxNumber := max;
+end;
+begin
+ write('Введите x,y ');
+ readln(x,y);
+ m := MaxNumber(x,y);
+ n := MaxNumber(2,x+y);
+ writeln('m=',m,'n=',n);
+end.">пример</a>
+
+<br />
+
+<a href="#" alt=';'>Завершение строки</a><br>
+
+
+ <script type="text/javascript">
+ function resetValue(elem)
+ {
+ elem = document.getElementById(elem);
+ elem.value = "";
+ }
+ </script>
+
+
+<hr style="margin-bottom:4px;width:90%;" />
+
+<center>
+	<input class="buttonStyle" style="margin-top:5px;" type="button" onClick="resetValue('textcode');" value="Очистить код" /></center>
+
+</div>
+
+
+<hr style="margin-bottom:4px;width:90%;" />
+
+
+<div class="helpbar"><a href="http://primat.org/news/konstruktor_programm_na_paskale/2015-10-26-930" target="_blank" title="Высказать пожелания" >Помощь</a></div>
+
+
+</div>
+
+
+</center>
+
+
+
+<textarea style="resize:none;
+    margin-left:10px;
+    margin-top:0px;
+    float:left;
+    border:4px solid #96B97D;
+    background:#E9E9E9;
+    width:calc(100% - 330px);
+    height:440px;
+    overflow:auto;"  id="textcode" rows=100 WRAP=virtual></textarea>
+
+
+
+<div align="justify" style="clear:both;color:#96B97D;font-size:11px;">
+Конструктор можно использовать для ускорения набора кодов программ на Паскале. Для этого здесь используются типовые конструкции языка. Кроме того, имеются типовые примеры. Чтобы составить программу - нажимайте на соответствующую ссылку типового блока (окно слева). Типовой код будет добавлен в правом окне (окно кода). Можно вставлять готовые примеры и вносить в них свои данные. После набора кода - вы можете его скопировать (выделить и нажать Ctrl+C), а затем вставить там, где вам нужно.
+</div>
+
+
+<script src="js/addcode.js"></script>
+
+</body>
+</html>
